@@ -18,7 +18,7 @@
 
 # 📖 About This Project <a name="about-project"></a>
 
-> Experience Scroll Animation, a captivating website meticulously crafted with HTML, SCSS, and TypeScript. Built using webpack and fortified with linters, this project ensures a seamless and error-free codebase. Immerse yourself in the live demo for a firsthand look at the captivating animations!
+> Toast Notification is created with HTML, SCSS, and TypeScript, using linters to overcome code errors and maintain clean code. This website is very small; it shows how to create notifications dynamically. Please check out the live demo.
 
 # Sample Of Website <a name="Sample-Of-Website"></a>
 
@@ -39,7 +39,6 @@
   <li><a href="https://en.wikipedia.org/wiki/TypeScript">TypeScript</a></li>
   <li><a href="https://stylelint.io/">Html/CSS Linters</a></li>
   <li><a href="https://eslint.org/">eslinters/TsLinters</a></li>
-    <li><a href="https://webpack.js.org/">Web Pack</a></li>
   </ul>
 </details>
 
