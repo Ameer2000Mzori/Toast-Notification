@@ -1,18 +1,28 @@
 // selecting elements
-var notigicationWrap = document.getElementsByClassName("notigication-Wrap")[0];
+var notificationWrap = document.getElementsByClassName("notigication-Wrap")[0];
 var notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0];
 // our objectData
 // our function
 var showNoty = function () {
+    // creating element
     var pEl = document.createElement("p");
+    // sending our data from our object
+    // our p element
     pEl.textContent = "hallo world";
     pEl.style.color = "black";
-    notigicationWrap.classList.add("active");
-    notigicationWrap.style.backgroundColor = "green";
-    notigicationWrap.appendChild(pEl);
+    // our notify element
+    notificationWrap.classList.add("active");
+    notificationWrap.style.backgroundColor = "green";
+    notificationWrap.appendChild(pEl);
+    notyBtn.disabled = true;
+    // our timers
     setTimeout(function () {
-        notigicationWrap.classList.remove("active");
-    }, 1500);
+        notificationWrap.classList.remove("active");
+        notyBtn.disabled = false;
+        setTimeout(function () {
+            pEl.remove();
+        }, 1200);
+    }, 1000);
 };
 // our event lisnters
 notyBtn.addEventListener("click", showNoty);
