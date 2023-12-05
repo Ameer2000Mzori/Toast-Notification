@@ -2,28 +2,33 @@
 var notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0];
 var headWrap = document.getElementsByClassName("head-Wrap")[0];
 // our objectData
-var objectData = [
-    {
-        text: "Error!",
-        color: "black",
-        backGroundColor: "red",
-    },
-    {
-        text: "Logged In",
-        color: "white",
-        backGroundColor: "green",
-    },
-    {
-        text: "Loading",
-        color: "black",
-        backGroundColor: "yellow",
-    },
-    {
-        text: "Something Went Wrong!",
-        color: "white",
-        backGroundColor: "black",
-    },
-];
+// let objectData: any = [
+//   {
+//     text: "Error!",
+//     color: "black",
+//     backGroundColor: "red",
+//   },
+//   {
+//     text: "Logged In",
+//     color: "white",
+//     backGroundColor: "green",
+//   },
+//   {
+//     text: "Loading",
+//     color: "black",
+//     backGroundColor: "yellow",
+//   },
+//   {
+//     text: "Something Went Wrong!",
+//     color: "white",
+//     backGroundColor: "black",
+//   },
+// ];
+var objectData = {
+    text: ["Error!", "Logged In", "Loading", "Something Went Wrong!"],
+    color: ["black", "white", "black", "white"],
+    backGroundColor: ["red", "green", "yellow", "black"],
+};
 // our function
 var showNoty = function (data) {
     // creating element
@@ -33,12 +38,12 @@ var showNoty = function (data) {
     // our notify element
     notificationWrap.classList.add("notigication-Wrap");
     notificationWrap.classList.add("active");
-    notificationWrap.style.backgroundColor = "".concat(data.backGroundColor);
+    notificationWrap.style.backgroundColor = "".concat(objectData.backGroundColor[data]);
     notificationWrap.appendChild(pEl);
     notyBtn.disabled = true;
     // our p element
-    pEl.textContent = "".concat(data.text);
-    pEl.style.color = "".concat(data.color);
+    pEl.textContent = "".concat(objectData.text[data]);
+    pEl.style.color = "".concat(objectData.color[data]);
     headWrap.appendChild(notificationWrap);
     // our timers
     setTimeout(function () {
@@ -56,5 +61,5 @@ notyBtn.addEventListener("click", function () {
     var randNum = Math.floor(Math.random() * 4);
     // sending our random number to the function
     console.log(randNum);
-    showNoty(objectData[randNum]);
+    showNoty(randNum);
 });

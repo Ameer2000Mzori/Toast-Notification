@@ -2,28 +2,34 @@
 const notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0] as any;
 const headWrap = document.getElementsByClassName("head-Wrap")[0] as any;
 // our objectData
-let objectData: any = [
-  {
-    text: "Error!",
-    color: "black",
-    backGroundColor: "red",
-  },
-  {
-    text: "Logged In",
-    color: "white",
-    backGroundColor: "green",
-  },
-  {
-    text: "Loading",
-    color: "black",
-    backGroundColor: "yellow",
-  },
-  {
-    text: "Something Went Wrong!",
-    color: "white",
-    backGroundColor: "black",
-  },
-];
+// let objectData: any = [
+//   {
+//     text: "Error!",
+//     color: "black",
+//     backGroundColor: "red",
+//   },
+//   {
+//     text: "Logged In",
+//     color: "white",
+//     backGroundColor: "green",
+//   },
+//   {
+//     text: "Loading",
+//     color: "black",
+//     backGroundColor: "yellow",
+//   },
+//   {
+//     text: "Something Went Wrong!",
+//     color: "white",
+//     backGroundColor: "black",
+//   },
+// ];
+
+let objectData: any = {
+  text: ["Error!", "Logged In", "Loading", "Something Went Wrong!"],
+  color: ["black", "white", "black", "white"],
+  backGroundColor: ["red", "green", "yellow", "black"],
+};
 
 // our function
 let showNoty = (data) => {
@@ -35,12 +41,12 @@ let showNoty = (data) => {
   // our notify element
   notificationWrap.classList.add("notigication-Wrap");
   notificationWrap.classList.add("active");
-  notificationWrap.style.backgroundColor = `${data.backGroundColor}`;
+  notificationWrap.style.backgroundColor = `${objectData.backGroundColor[data]}`;
   notificationWrap.appendChild(pEl);
   notyBtn.disabled = true;
   // our p element
-  pEl.textContent = `${data.text}`;
-  pEl.style.color = `${data.color}`;
+  pEl.textContent = `${objectData.text[data]}`;
+  pEl.style.color = `${objectData.color[data]}`;
 
   headWrap.appendChild(notificationWrap);
 
@@ -63,5 +69,5 @@ notyBtn.addEventListener("click", () => {
 
   // sending our random number to the function
   console.log(randNum);
-  showNoty(objectData[randNum]);
+  showNoty(randNum);
 });
