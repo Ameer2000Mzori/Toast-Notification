@@ -8,3 +8,32 @@ body {
   padding: 0;
   margin: 0;
 }
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: rgb(58, 73, 83);
+  text-align: center;
+  align-items: center;
+  position: relative;
+}
+
+.get-Nofti-Btn {
+  padding: 10px 35px;
+  border-radius: 5px;
+  border: none;
+  color: black;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgb(135, 180, 219);
+  }
+
+  &:active {
+    background-color: rgb(198, 226, 250);
+  }
+}
