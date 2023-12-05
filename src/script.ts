@@ -1,10 +1,6 @@
 // selecting elements
-const notificationWrap = document.getElementsByClassName(
-  "notigication-Wrap"
-)[0] as any;
-
 const notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0] as any;
-
+const headWrap = document.getElementsByClassName("head-Wrap")[0] as any;
 // our objectData
 let objectData: any = [
   {
@@ -33,10 +29,11 @@ let objectData: any = [
 let showNoty = (data) => {
   // creating element
   const pEl = document.createElement("p");
-
+  const notificationWrap = document.createElement("div");
   // sending our data from our object
 
   // our notify element
+  notificationWrap.classList.add("notigication-Wrap");
   notificationWrap.classList.add("active");
   notificationWrap.style.backgroundColor = `${data.backGroundColor}`;
   notificationWrap.appendChild(pEl);
@@ -45,16 +42,18 @@ let showNoty = (data) => {
   pEl.textContent = `${data.text}`;
   pEl.style.color = `${data.color}`;
 
+  headWrap.appendChild(notificationWrap);
+
   // our timers
   setTimeout(() => {
     notificationWrap.classList.remove("active");
     notyBtn.disabled = false;
 
     setTimeout(() => {
-      pEl.textContent = "";
+      notificationWrap.remove();
       pEl.remove();
-    }, 1160);
-  }, 1100);
+    }, 1060);
+  }, 1000);
 };
 
 // our event lisnters

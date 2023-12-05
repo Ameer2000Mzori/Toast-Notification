@@ -1,6 +1,6 @@
 // selecting elements
-var notificationWrap = document.getElementsByClassName("notigication-Wrap")[0];
 var notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0];
+var headWrap = document.getElementsByClassName("head-Wrap")[0];
 // our objectData
 var objectData = [
     {
@@ -28,8 +28,10 @@ var objectData = [
 var showNoty = function (data) {
     // creating element
     var pEl = document.createElement("p");
+    var notificationWrap = document.createElement("div");
     // sending our data from our object
     // our notify element
+    notificationWrap.classList.add("notigication-Wrap");
     notificationWrap.classList.add("active");
     notificationWrap.style.backgroundColor = "".concat(data.backGroundColor);
     notificationWrap.appendChild(pEl);
@@ -37,15 +39,16 @@ var showNoty = function (data) {
     // our p element
     pEl.textContent = "".concat(data.text);
     pEl.style.color = "".concat(data.color);
+    headWrap.appendChild(notificationWrap);
     // our timers
     setTimeout(function () {
         notificationWrap.classList.remove("active");
         notyBtn.disabled = false;
         setTimeout(function () {
-            pEl.textContent = "";
+            notificationWrap.remove();
             pEl.remove();
-        }, 1160);
-    }, 1100);
+        }, 1060);
+    }, 1000);
 };
 // our event lisnters
 notyBtn.addEventListener("click", function () {
