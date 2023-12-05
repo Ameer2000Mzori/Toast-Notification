@@ -6,7 +6,7 @@ const notificationWrap = document.getElementsByClassName(
 const notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0] as any;
 
 // our objectData
-const objectData = [
+let objectData: any = [
   {
     text: "Error!",
     color: "black",
@@ -30,21 +30,20 @@ const objectData = [
 ];
 
 // our function
-const showNoty = () => {
+let showNoty = (data) => {
   // creating element
   const pEl = document.createElement("p");
 
   // sending our data from our object
 
-  // our p element
-  pEl.textContent = "hallo world";
-  pEl.style.color = "black";
-
   // our notify element
   notificationWrap.classList.add("active");
-  notificationWrap.style.backgroundColor = "green";
+  notificationWrap.style.backgroundColor = `${data.backGroundColor}`;
   notificationWrap.appendChild(pEl);
   notyBtn.disabled = true;
+  // our p element
+  pEl.textContent = `${data.text}`;
+  pEl.style.color = `${data.color}`;
 
   // our timers
   setTimeout(() => {
@@ -52,10 +51,18 @@ const showNoty = () => {
     notyBtn.disabled = false;
 
     setTimeout(() => {
+      pEl.textContent = "";
       pEl.remove();
-    }, 1200);
-  }, 1000);
+    }, 1160);
+  }, 1100);
 };
 
 // our event lisnters
-notyBtn.addEventListener("click", showNoty);
+notyBtn.addEventListener("click", () => {
+  // created our random num function
+  let randNum = Math.floor(Math.random() * 4);
+
+  // sending our random number to the function
+  console.log(randNum);
+  showNoty(objectData[randNum]);
+});

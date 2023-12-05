@@ -25,26 +25,33 @@ var objectData = [
     },
 ];
 // our function
-var showNoty = function () {
+var showNoty = function (data) {
     // creating element
     var pEl = document.createElement("p");
     // sending our data from our object
-    // our p element
-    pEl.textContent = "hallo world";
-    pEl.style.color = "black";
     // our notify element
     notificationWrap.classList.add("active");
-    notificationWrap.style.backgroundColor = "green";
+    notificationWrap.style.backgroundColor = "".concat(data.backGroundColor);
     notificationWrap.appendChild(pEl);
     notyBtn.disabled = true;
+    // our p element
+    pEl.textContent = "".concat(data.text);
+    pEl.style.color = "".concat(data.color);
     // our timers
     setTimeout(function () {
         notificationWrap.classList.remove("active");
         notyBtn.disabled = false;
         setTimeout(function () {
+            pEl.textContent = "";
             pEl.remove();
-        }, 1200);
-    }, 1000);
+        }, 1160);
+    }, 1100);
 };
 // our event lisnters
-notyBtn.addEventListener("click", showNoty);
+notyBtn.addEventListener("click", function () {
+    // created our random num function
+    var randNum = Math.floor(Math.random() * 4);
+    // sending our random number to the function
+    console.log(randNum);
+    showNoty(objectData[randNum]);
+});
