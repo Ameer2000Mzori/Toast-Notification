@@ -6,6 +6,28 @@ const notificationWrap = document.getElementsByClassName(
 const notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0] as any;
 
 // our objectData
+const objectData = [
+  {
+    text: "Error!",
+    color: "black",
+    backGroundColor: "red",
+  },
+  {
+    text: "Logged In",
+    color: "white",
+    backGroundColor: "green",
+  },
+  {
+    text: "Loading",
+    color: "black",
+    backGroundColor: "yellow",
+  },
+  {
+    text: "Something Went Wrong!",
+    color: "white",
+    backGroundColor: "black",
+  },
+];
 
 // our function
 const showNoty = () => {

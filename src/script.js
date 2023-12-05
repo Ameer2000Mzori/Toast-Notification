@@ -2,6 +2,28 @@
 var notificationWrap = document.getElementsByClassName("notigication-Wrap")[0];
 var notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0];
 // our objectData
+var objectData = [
+    {
+        text: "Error!",
+        color: "black",
+        backGroundColor: "red",
+    },
+    {
+        text: "Logged In",
+        color: "white",
+        backGroundColor: "green",
+    },
+    {
+        text: "Loading",
+        color: "black",
+        backGroundColor: "yellow",
+    },
+    {
+        text: "Something Went Wrong!",
+        color: "white",
+        backGroundColor: "black",
+    },
+];
 // our function
 var showNoty = function () {
     // creating element
