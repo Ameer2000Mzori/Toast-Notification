@@ -55,7 +55,7 @@ body {
   font-family: inherit;
 }
 
-.notigication-Wrap:hover {
+.notigication-Wrap.active {
   color: rgb(0, 0, 0);
   font-size: 15px;
   font-weight: 600;
