@@ -1,7 +1,9 @@
 // selecting elements
 const notyBtn = document.getElementsByClassName("get-Nofti-Btn")[0] as any;
 const headWrap = document.getElementsByClassName("head-Wrap")[0] as any;
+
 // our objectData
+//arry of objects
 // let objectData: any = [
 //   {
 //     text: "Error!",
@@ -25,6 +27,7 @@ const headWrap = document.getElementsByClassName("head-Wrap")[0] as any;
 //   },
 // ];
 
+// object of arrays
 let objectData: any = {
   text: ["Error!", "Logged In", "Loading", "Something Went Wrong!"],
   color: ["black", "white", "black", "white"],
@@ -51,10 +54,12 @@ let showNoty = (data) => {
   headWrap.appendChild(notificationWrap);
 
   // our timers
+  // this timer will remove classlist and false the disabled btn
   setTimeout(() => {
     notificationWrap.classList.remove("active");
     notyBtn.disabled = false;
 
+    // this timer will remove any element that is created dinamcly
     setTimeout(() => {
       notificationWrap.remove();
       pEl.remove();
